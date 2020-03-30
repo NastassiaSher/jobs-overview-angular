@@ -1,0 +1,36 @@
+<div class="job-container">
+  <!--active indicator-->
+  <div class="line" [ngClass]="{'blue-line': job.active}"></div>
+  <!--image-->
+  <div class="job-image">
+    <img [src]="job.thumbnail" alt="Place image title">
+  </div>
+  <!--job info-->
+  <div class="job-overview">
+    <h3 class="job-title">{{job.title}}</h3>
+    <div class="job-category">
+      <span *ngFor="let category of job.categories">#categorie{{category.id}} </span>
+    </div>
+    <div class="city-zip">
+      <i class="material-icons location-icon">location_on</i>
+      {{job.city}}, {{job.zip_code}}
+    </div>
+    <hr>
+    <div class="date-etc">
+      <div class="job-date">
+        <i class="material-icons small-icon">event</i>
+        {{endDate | date:'dd MMM yyyy HH:mm'}}
+      </div>
+      <div class="job-msg">
+        <i class='material-icons small-icon'>mail_outline</i>
+        <span class="unread-msg">{{job.counter.messages_unread}}</span>/{{job.counter.messages_total}}
+      </div>
+      <div class="job-id">
+        <i class='material-icons small-icon'>insert_drive_file</i>
+        {{job.id}}
+      </div>
+      <i  *ngIf="!job.is_awarded" class='material-icons small-icon'>star_border</i>
+      <i *ngIf="job.is_awarded" class='material-icons small-icon'>star</i>
+    </div>
+  </div>
+</div>

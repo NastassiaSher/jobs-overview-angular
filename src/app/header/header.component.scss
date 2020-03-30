@@ -1,0 +1,53 @@
+#appHeader {
+  width: 100%;
+  min-width: 1000px;
+  height: 120px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header-top, .header-bottom {
+  height: 60px;
+  display: flex;
+}
+
+.header-top {
+  width: 80%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media screen and (max-width: 1200px) {
+  .header-top {
+    width: 90%;
+  }
+}
+
+.header-bottom {
+  width: 100%;
+  background: transparent linear-gradient(180deg, #00304D 0%, #01314E 1%, #1F5072 43%, #316488 78%, #386B90 100%) 0% 0% no-repeat padding-box;
+  .titles {
+    width: 80%;
+    display: flex;
+    margin: 0 auto;
+    h1 {
+      width: 50%;
+      min-width: 450px;
+      padding-left: 30px;
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .header-bottom {
+    .titles {
+      width: 90%;
+    }
+  }
+}
+
+.svg-style {
+  line-height: 0;
+}

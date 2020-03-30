@@ -1,0 +1,67 @@
+<div class="desc-container" *ngIf="job">
+  <div id="jobHeader" class="job-header">
+    <!--  image   -->
+    <div class="job-img">
+      <img [src]="job.thumbnail" alt="Place image title">
+    </div>
+    <!--  title   -->
+    <div class="job-header-items">
+      <h2>{{job.title}}</h2>
+      <!--  location   -->
+      <div class="location">
+        <i class="material-icons location-icon">location_on</i>
+        {{job.city}}, {{job.zip_code}}
+      </div>
+      <!--  categories   -->
+      <div class="job-categories">
+        <span *ngFor="let category of job.categories">#categorie{{category.id}} </span>
+      </div>
+    </div>
+  </div>
+  <!--  info   -->
+  <div id="jobInfo" class="job-info">
+    <!--  dates   -->
+    <div class="creation-date">
+      <h4>Created</h4>
+      <span>{{job.created_at | date:'dd MMM yyyy HH:mm'}}</span>
+    </div>
+    <div class="end-date">
+      <h4>Deadline</h4>
+      <span>{{job.end_date | date:'dd MMM yyyy HH:mm'}}</span>
+    </div>
+    <!--  messages, id, awards   -->
+    <div class="additional-info">
+      <div class="job-msg">
+        <i class='material-icons small-icon'>mail_outline</i>
+        <span class="unread-msg">{{job.counter.messages_unread}}</span>/{{job.counter.messages_total}}
+      </div>
+      <div class="job-id">
+        <i class='material-icons small-icon'>insert_drive_file</i>
+        <span>{{job.id}}</span>
+      </div>
+      <div>
+        <i  *ngIf="!job.is_awarded" class='material-icons small-icon'>star_border</i>
+        <i *ngIf="job.is_awarded" class='material-icons small-icon'>star</i>
+      </div>
+    </div>
+  </div>
+  <!--  description   -->
+  <div id="jobDesc" class="job-description">
+    <h4>About</h4>
+    <div class="desc-text">{{job.description}}</div>
+  </div>
+  <!--  attachments   -->
+  <div class="attachment">
+    <h4>Attachments</h4>
+    <div id="attachedImgs" class="attached-img">
+      <div *ngIf="job.attachments.length === 0" class="no-attachments">
+        No attachments
+      </div>
+      <div *ngFor="let att of job.attachments" class="images">
+        <img [src]="att" alt="attachment">
+      </div>
+    </div>
+  </div>
+
+</div>
+
